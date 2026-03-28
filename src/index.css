@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-hospital-slate text-hospital-chumbo antialiased;
+  }
+}
+
+@layer components {
+  .hospital-card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-100 p-6;
+  }
+  
+  .hospital-btn-primary {
+    @apply bg-hospital-navy text-white px-4 py-2 rounded-lg font-medium transition-all hover:opacity-90 active:scale-95 disabled:opacity-50;
+  }
+  
+  .hospital-btn-secondary {
+    @apply bg-hospital-teal text-white px-4 py-2 rounded-lg font-medium transition-all hover:opacity-90 active:scale-95 disabled:opacity-50;
+  }
+}
