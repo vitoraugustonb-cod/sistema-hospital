@@ -13,12 +13,7 @@ const Sidebar: React.FC = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      await axios.post('http://localhost:3001/api/logout');
-    } catch (err) {
-      console.error('Erro ao registrar log de logout');
-    }
+  const handleLogout = () => {
     logout();
     navigate('/login');
   };

@@ -6,9 +6,9 @@ import {
   ChevronLeft, Send, CheckCircle2, AlertCircle, Plus, Microscope, Activity, Thermometer, Droplets, Clock, Info,
   LogOut, FileText, X, ShieldCheck, Lock
 } from 'lucide-react';
-import { 
+/* import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine, ReferenceArea
-} from 'recharts';
+} from 'recharts'; */
 import DashboardLayout from '../components/DashboardLayout';
 
 interface Evolution {
@@ -399,6 +399,8 @@ const MedicalPepPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex-1 w-full relative">
+                    {/* Gráfico desativado temporariamente por compatibilidade */}
+                    {/* 
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
@@ -416,6 +418,10 @@ const MedicalPepPage: React.FC = () => {
                         <Line type="monotone" dataKey="pad" name="PAD" stroke="#60a5fa" strokeWidth={2} strokeDasharray="5 5" dot={false} />
                       </LineChart>
                     </ResponsiveContainer>
+                    */}
+                    <div className="w-full h-full flex items-center justify-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200">
+                       <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Gráfico de Tendências desativado</p>
+                    </div>
                   </div>
                 </div>
               </div>
