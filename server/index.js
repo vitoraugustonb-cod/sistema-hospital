@@ -78,9 +78,10 @@ const validate = (schema) => (req, res, next) => {
 const registrarLog = (userId, acao, detalhes = '') => {
   const dataHora = new Date().toISOString();
   db.run("INSERT INTO logs (user_id, acao, data_hora) VALUES (?, ?, ?)", 
-    [userId, `${acao}${detalhes ? ': ' + detalhes : ''}`], 
+    [userId, `${acao}${detalhes ? ': ' + detalhes : ''}`, dataHora], 
     (err) => {
       if (err) console.error('Erro ao registrar log de auditoria:', err);
+      else console.log(`Log registrado: ${acao} - Usuário ID: ${userId}`);
     }
   );
 };
@@ -218,13 +219,23 @@ app.post('/api/logout', authenticateToken, (req, res) => {
 });
 
 app.get('/api/logs', authenticateToken, checkRole(['TI']), (req, res) => {
-  db.all(`
-    SELECT l.*, u.nome as user_nome, u.cargo as user_cargo 
+  const query = `
+    SELECT 
+      l.id, 
+      l.acao, 
+      l.data_hora, 
+      u.nome as user_nome, 
+      u.cargo as user_cargo 
     FROM logs l 
-    JOIN users u ON l.user_id = u.id 
-    ORDER BY l.data_hora DESC
-  `, [], (err, rows) => {
-    if (err) return res.status(500).json({ message: 'Erro ao buscar logs' });
+    LEFT JOIN users u ON l.user_id = u.id 
+    ORDER BY l.data_hora DESC 
+    LIMIT 100
+  `;
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      console.error('Erro ao buscar logs:', err);
+      return res.status(500).json({ message: 'Erro ao buscar logs' });
+    }
     res.json(rows);
   });
 });

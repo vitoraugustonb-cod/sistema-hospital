@@ -49,12 +49,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('hospital_token');
-    localStorage.removeItem('hospital_user');
-    setToken(null);
-    setUser(null);
-    delete axios.defaults.headers.common['Authorization'];
+  const logout = async () => {
+    try {
+      // Notifica o servidor para registrar o log de auditoria
+      await axios.post('http://localhost:3001/api/logout');
+    } catch (error) {
+      console.error('Erro ao registrar logout no servidor');
+    } finally {
+      localStorage.removeItem('hospital_token');
+      localStorage.removeItem('hospital_user');
+      setToken(null);
+      setUser(null);
+      delete axios.defaults.headers.common['Authorization'];
+    }
   };
 
   return (
