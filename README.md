@@ -140,6 +140,9 @@ Não foram identificados testes automatizados no código atual.
 4.  Faça o Push para a Branch (`git push origin feature/NovaFeature`).
 5.  Abra um Pull Request.
 
-## 📄 Licença
+## 🧑‍💻 Desenvolvedor
 
-Este projeto está sob a licença MIT.
+Este projeto foi desenvolvido com foco em excelência técnica e segurança hospitalar por **Vitor**.
+
+---
+*Este sistema é de uso restrito e monitorado.*
