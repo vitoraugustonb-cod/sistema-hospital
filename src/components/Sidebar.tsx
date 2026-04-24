@@ -3,7 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { 
   Users, LayoutDashboard, LogOut, 
   UserRound, Bed, 
-  Stethoscope, Thermometer, Database, ClipboardList, LucideIcon
+  Stethoscope, Thermometer, Database, ClipboardList, LucideIcon,
+  FlaskConical, History as HistoryIcon
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 
@@ -28,12 +29,18 @@ const Sidebar: React.FC = () => {
     ],
     'Medico': [
       { label: 'Censo Clínico', path: '/medico', icon: Stethoscope },
+      { label: 'Minhas Pendências', path: '/medico/pendencias', icon: ClipboardList },
+      { label: 'Exames', path: '/medico/exames', icon: FlaskConical },
+      { label: 'Histórico de Altas', path: '/medico/historico', icon: HistoryIcon },
     ],
     'Enfermeiro': [
       { label: 'Censo Enfermagem', path: '/enfermeiro', icon: ClipboardList },
+      { label: 'Gestão de Unidade', path: '/enfermeiro/unidade', icon: LayoutDashboard },
+      { label: 'Solicitações Exames', path: '/enfermeiro/exames', icon: FlaskConical },
     ],
     'Tecnico': [
       { label: 'Atividades', path: '/tecnico', icon: Thermometer },
+      { label: 'Coleta de Exames', path: '/tecnico/exames', icon: FlaskConical },
     ]
   };
 

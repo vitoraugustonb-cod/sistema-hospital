@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { UserPlus, Search, MapPin, Fingerprint, Phone, Users, ArrowRight, BedDouble } from 'lucide-react';
+import { UserPlus, Search, MapPin, Fingerprint, Phone, Users, ArrowRight, BedDouble, AlertCircle } from 'lucide-react';
 import { cpf as cpfValidator } from 'cpf-cnpj-validator';
 import DashboardLayout from '../components/DashboardLayout';
 
