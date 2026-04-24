@@ -121,10 +121,6 @@ JWT_SECRET=uma_chave_secreta_longa_e_segura
 
 Não foram identificados testes automatizados no código atual.
 
-## 📸 Screenshots
-
-> [Espaço para adicionar prints da tela de Dashboard, Login e Mapa de Leitos]
-
 ## 📌 Melhorias futuras
 
 1.  **Módulo de Medicamentos:** Adicionar controle de estoque e aprazamento de doses.
